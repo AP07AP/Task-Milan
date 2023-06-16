@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Milan Login</title>
+  <style>
+    /* General styling */
+    body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+  }
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header, nav, main, footer {
+    padding: 20px;
+  }
+  
+  header {
+    background-color: #333;
+    color: white;
+  }
+  nav {
+    background-color: #f1f1f1;
+  }
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  nav ul li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  nav ul li a {
+    color: #333;
+    text-decoration: none;
+  }
+  nav a {
+    text-decoration: none;
+    color: #333;
+    padding: 5px;
+  }
+  
+  nav a:hover {
+    background-color: #333;
+    color: #fff;
+  }
+  footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    margin-top: 389px;
+  }
+  
+  footer p {
+    padding: 10px;
+  }
+  section.hi {
+    margin-bottom: 20px;
+    background: #0980ab;
+    height: 94px;
+    
+  }
+  
+  
+  /* Profile form styling */
+  form label {
+    display: block;
+    margin-top: 10px;
+  }
+  
+  form input[type="text"],
+  form select,
+  form input[type="checkbox"] {
+    margin-top: 5px;
+  }
+  
+  /* Google Login button styling */
+  section {
+  max-width: auto ;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+#googleLoginButton {
+    display: inline-block;
+  padding: 10px 20px;
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+
+#googleLoginButton:hover {
+  background-color: #3274d9;
+}
+  
+  </style>
+</head>
+<body>
+    <header style="position: relative;">
+        <h1 style="display: inline-block;">Welcome to Milan</h1>
+        <img src="https://res.cloudinary.com/dwsverefw/image/upload/v1671733197/media%20council/milan_logo_og_rxtdnj.png" alt="Elan &amp; nVision" height="78px" style="position: absolute; top: 0; right: 0;">
+      </header>
+      
+
+  <nav>
+    <ul>
+      <li><a href="login.html">Home</a></li>
+      <li><a href="profile.html">Profile</a></li>
+    </ul>
+  </nav>
+  
+   
+  
+  <main>
+    <section class="hi" >
+        <h2>About Milan</h2>
+        <p>
+          "Milan" is the annual techno-cultural-sports General Championship of IIT Hyderabad. It consists of 19 Sports, 18 Cultural and 11 technical events conducted between all the hostel blocks. In this second edition of Milan, presented by SBI YONO, the sports, cultural, and technical events will start from 9th September and will conclude on 18th September</p>
+      </section>
+      <br>
+      <br>
+      <br>
+      <br>
+    <section>
+      <h2>Login with Google</h2>
+      <button id="googleLoginButton" onclick="handleGoogleLogin()" type="submit"><a href="https://accounts.google.com/o/oauth2/auth/oauthchooseaccount?redirect_uri=storagerelay%3A%2F%2Fhttps%2Focs.iith.ac.in%3Fid%3Dauth670027&response_type=permission%20id_token&scope=email%20profile%20openid%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive.file&openid.realm&include_granted_scopes=true&client_id=448127104593-q9celr92tf75ni47sgbt8nut7c5i2kll.apps.googleusercontent.com&ss_domain=https%3A%2F%2Focs.iith.ac.in&prompt&fetch_basic_profile=true&gsiwebsdk=2&service=lso&o2v=1&flowName=GeneralOAuthFlow">Sign in with Google</a></button>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Milan Website. All rights reserved.</p>
+  </footer>
+
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script>
+    function handleGoogleLogin() {
+    google.accounts.id.initialize({
+      client_id: 'YOUR_GOOGLE_CLIENT_ID',
+      callback: handleGoogleSignIn
+    });
+  
+    google.accounts.id.prompt();
+  }
+  
+  function handleGoogleSignIn(response) {
+    if (response.credential) {
+      const idToken = response.credential;
+  
+      // Send the ID token to the server for verification and further processing
+      console.log('Google ID Token:', idToken);
+    }
+  }
+  
+  </script>
+</body>
+</html>
